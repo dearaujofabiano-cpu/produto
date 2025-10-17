@@ -220,3 +220,35 @@ header p {
     color: white;
     background-color: var(--card-background);
 }
+/* --- ESTILOS PARA A PÁGINA DE OBRIGADO --- */
+.summary-box {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 1.5rem 2rem;
+    text-align: left;
+    margin-top: 2rem;
+}
+
+.summary-box h3 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.summary-item {
+    margin-bottom: 1.5rem;
+}
+
+.summary-item strong {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+}
+
+.summary-item p {
+    margin: 0.5rem 0 0 0;
+    line-height: 1.6;
+    color: #ccc;
+    white-space: pre-wrap; /* Mantém as quebras de linha da resposta */
+}
