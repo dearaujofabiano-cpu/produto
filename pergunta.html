@@ -21,10 +21,10 @@
 
             <form id="response-form">
                 <label for="client-response">Quais são as necessidades e dores do cliente?</label>
-                <textarea id="client-response" name="entry.XXXXXX" rows="8" required placeholder="Digite sua análise aqui..."></textarea>
+                <textarea id="client-response" name="entry.Cliente_Teste" rows="8" required placeholder="Digite sua análise aqui..."></textarea>
 
-                <input type="hidden" id="group-number-field" name="entry.YYYYYY">
-                <input type="hidden" id="profile-name-field" name="entry.ZZZZZZ">
+                <input type="hidden" id="group-number-field" name="entry.999">
+                <input type="hidden" id="profile-name-field" name="entry.Resposta_Teste">
 
                 <div class="button-group">
                     <button type="submit" class="cta-button">Enviar Resposta</button>
@@ -53,7 +53,7 @@
                 event.preventDefault();
                 
                 // IMPORTANTE: Substitua o link abaixo pelo link de ação do seu formulário
-                const formActionURL = 'COLE_AQUI_O_LINK_DO_SEU_FORMULÁRIO/formResponse';
+                const formActionURL = 'https://docs.google.com/forms/d/e/1FAIpQLSc_seHiqJSzr8ETGSfEye6EEXmEwETyuZQ1n0PklSs2KQe3eQ/viewform?usp=pp_url&entry.395835875=999&entry.1611848995=Cliente_Teste&entry.187366083=Resposta_Teste';
                 const formData = new FormData(form);
 
                 try {
