@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do Cliente - Chevrolet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="question-page">
+        <header id="client-header" class="page-header">
+            <h2 id="client-name">Analisando o Perfil de...</h2> 
+        </header>
+
+        <main>
+            <p>Após ler o Storybook, descreva sua análise abaixo.</p>
+            
+            <a href="#" id="storybook-link" target="_blank" class="cta-button storybook-button">
+                Ler o Storybook do Cliente
+            </a>
+
+            <form id="response-form">
+                <label for="client-response">Quais são as necessidades e dores do cliente?</label>
+                <textarea id="client-response" name="entry.XXXXXX" rows="8" required placeholder="Digite sua análise aqui..."></textarea>
+
+                <input type="hidden" id="group-number-field" name="entry.YYYYYY">
+                <input type="hidden" id="profile-name-field" name="entry.ZZZZZZ">
+
+                <div class="button-group">
+                    <button type="submit" class="cta-button">Enviar Resposta</button>
+                    <a href="index.html" class="secondary-button">Voltar ao Início</a>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const selectedProfile = JSON.parse(localStorage.getItem('selectedProfile'));
+            const groupNumber = localStorage.getItem('groupNumber');
+
+            if (selectedProfile) {
+                document.getElementById('client-name').textContent = `Analisando o Perfil de ${selectedProfile.name}`;
+                document.getElementById('storybook-link').href = selectedProfile.link;
+                document.getElementById('group-number-field').value = groupNumber || 'N/A';
+                document.getElementById('profile-name-field').value = selectedProfile.name;
+            } else {
+                window.location.href = 'index.html';
+            }
+
+            const form = document.getElementById('response-form');
+            form.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                
+                // IMPORTANTE: Substitua o link abaixo pelo link de ação do seu formulário
+                const formActionURL = 'COLE_AQUI_O_LINK_DO_SEU_FORMULÁRIO/formResponse';
+                const formData = new FormData(form);
+
+                try {
+                    await fetch(formActionURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        body: new URLSearchParams(formData)
+                    });
+                    
+                    alert('Resposta enviada com sucesso! Obrigado por participar.');
+                    localStorage.removeItem('selectedProfile');
+                    localStorage.removeItem('groupNumber');
+                    window.location.href = 'index.html';
+
+                } catch (error) {
+                    console.error('Erro ao enviar o formulário:', error);
+                    alert('Houve um erro ao enviar sua resposta. Por favor, tente novamente.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

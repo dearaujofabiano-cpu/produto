@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seleção de Perfil - Chevrolet</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="page-header">
+            <h2>Escolha um perfil</h2>
+            <p>Clique no card do cliente para ler o Storybook e iniciar o desafio.</p>
+        </header>
+
+        <main id="profiles-grid">
+            <div class="profile-card" data-profile-name="Oswaldo Carvalho" data-storybook-link="https://g.co/gemini/share/e768dc17fa02">
+                <img src="Oswaldo_Carvalho.jpg" alt="Avatar de Oswaldo Carvalho" class="avatar">
+                <h3>Oswaldo Carvalho</h3>
+                <p>Engenheiro de produção que trata a vida como uma equação, buscando otimização e segurança para sua família.</p>
+            </div>
+
+            <div class="profile-card" data-profile-name="Fernanda Lins" data-storybook-link="https://g.co/gemini/share/c9518a09225a">
+                <img src="Fernanda_Lins.jpg" alt="Avatar de Fernanda Lins" class="avatar">
+                <h3>Fernanda Lins</h3>
+                <p>Farmacêutica regida pela precisão, que busca constantemente confiança e segurança para si e para a família.</p>
+            </div>
+
+            <div class="profile-card" data-profile-name="Mariana Medeiros" data-storybook-link="https://g.co/gemini/share/b0b92d270c90">
+                <img src="Mariana_Medeiros.jpg" alt="Avatar de Mariana Medeiros" class="avatar">
+                <h3>Mariana Medeiros</h3>
+                <p>Proprietária de uma consultoria de marketing para quem tempo é a métrica de seu sucesso e a eficiência é crucial.</p>
+            </div>
+
+            <div class="profile-card" data-profile-name="Leonardo Pessolato" data-storybook-link="https://g.co/gemini/share/a791f3b33626">
+                <img src="Leonardo_Pessolato.jpg" alt="Avatar de Leonardo Pessolato" class="avatar">
+                <h3>Leonardo Pessolato</h3>
+                <p>Diretor de criação que vive de tendências e adota conceitos, priorizando um estilo de vida criativo e versátil.</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileCards = document.querySelectorAll('.profile-card');
+
+            profileCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const profileData = {
+                        name: card.dataset.profileName,
+                        link: card.dataset.storybookLink
+                    };
+                    localStorage.setItem('selectedProfile', JSON.stringify(profileData));
+                    window.location.href = 'pergunta.html';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
