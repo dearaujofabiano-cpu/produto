@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF--8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análise do Cliente - Chevrolet</title>
     <link rel="stylesheet" href="style.css">
@@ -21,9 +21,10 @@
 
             <form id="response-form">
                 <label for="client-response">Quais são as necessidades e dores do cliente?</label>
-                <textarea id="client-response" name="999" rows="8" required placeholder="Digite sua análise aqui..."></textarea>
-                <input type="hidden" id="group-number-field" name="Cliente_Teste">
-                <input type="hidden" id="profile-name-field" name="Resposta_Teste">
+                <textarea id="client-response" name="entry.187366083" rows="8" required placeholder="Digite sua análise aqui..."></textarea>
+                
+                <input type="hidden" id="group-number-field" name="entry.395835875">
+                <input type="hidden" id="profile-name-field" name="entry.1611848995">
 
                 <div class="button-group">
                     <button type="submit" class="cta-button">Enviar Resposta</button>
@@ -51,8 +52,8 @@
             form.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 
-                // Substitua a URL abaixo pela sua "URL de Ação"
-                const formActionURL = 'https://docs.google.com/forms/d/e/1FAIpQLSc_seHiqJSzr8ETGSfEye6EEXmEwETyuZQ1n0PklSs2KQe3eQ/viewform?usp=pp_url&entry.395835875=999&entry.1611848995=Cliente_Teste&entry.187366083=Resposta_Teste';
+                // CORRIGIDO: A URL de Ação agora termina com /formResponse
+                const formActionURL = 'https://docs.google.com/forms/d/e/1FAIpQLSc_seHiqJSzr8ETGSfEye6EEXmEwETyuZQ1n0PklSs2KQe3eQ/formResponse';
                 const formData = new FormData(form);
 
                 try {
